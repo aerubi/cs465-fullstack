@@ -29,7 +29,7 @@ const tripsList = async(req, res) => {
 //GET: /trips/:tripID - lists a single trip
 //Regardless of outcome response must include HTML status code
 //and JSON message to the requesting client
-const tripsFindByID = async(req, res) => {
+const tripsFindByCode = async(req, res) => {
     const q = await Model
         .find({'code' : req.params.tripCode}) //No filter, return all records
         .exec();
@@ -52,5 +52,5 @@ const tripsFindByID = async(req, res) => {
 
 module.exports = {
     tripsList,
-    tripsFindByID
+    tripsFindByCode
 };

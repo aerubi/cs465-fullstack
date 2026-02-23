@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const host = process.env.DB_HOST || '127.0.0.1';
-const dbURI = `mongodb://${host}/travlr`;
+const dbURI = `mongodb://${host}:/travlr`;
 const readLine = require('readline');
 
 //Builds the connection string and sets the connection timeout.
@@ -11,7 +11,7 @@ const connect = () => {
 
 //Monitors connection events.
 mongoose.connection.on('connected', () => {
-    console.log('Mongoose connected to ${dbURI}');
+    console.log(`Mongoose connected to ${dbURI}`);
 });
 
 mongoose.connection.on('error', err => {
@@ -36,7 +36,7 @@ if(process.platform === 'win32'){
 //Configured for Graceful Shutdown
 const gracefulShutdown = (msg) => {
     mongoose.connection.close(() => {
-        console.log('Mongoose disconnected through ${msg}');
+        console.log(`Mongoose disconnected through ${msg}`);
     });
 };
 
