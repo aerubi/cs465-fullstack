@@ -135,7 +135,7 @@ Start the frontend with:
 cd ~/travlr/app_admin
 ng serve
 ```
-5.  API Endpoints
+## API Endpoints
 
 The backend exposes a RESTful API that supports both customer-facing and administrative functionality.
 
